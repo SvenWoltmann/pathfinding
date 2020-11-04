@@ -1,0 +1,11 @@
+.classpath
+.idea
+.project
+.settings
+out
+target
+**/gitignore
+*.iml
+*.class
+*.bin
+src/eu/happycoders/cds/sandbox
