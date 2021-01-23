@@ -1,7 +1,7 @@
 package eu.happycoders.pathfinding.dijkstra;
 
 /**
- * Data structure containing a node, it's total distance to the target and its predecessor.
+ * Data structure containing a node, it's total distance from the start and its predecessor.
  *
  * <p>Used by {@link DijkstraWithPriorityQueue}.
  *
