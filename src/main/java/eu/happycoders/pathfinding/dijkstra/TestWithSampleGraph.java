@@ -33,6 +33,7 @@ public class TestWithSampleGraph {
 
     System.out.println("graph = " + graph);
 
+    findAndPrintShortestPath(graph, "D", "H");
     findAndPrintShortestPath(graph, "A", "F");
     findAndPrintShortestPath(graph, "E", "H");
     findAndPrintShortestPath(graph, "B", "H");

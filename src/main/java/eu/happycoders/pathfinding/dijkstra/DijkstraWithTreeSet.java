@@ -50,7 +50,7 @@ public class DijkstraWithTreeSet {
           continue;
         }
 
-        // Calculate total distance to neighbor via current node
+        // Calculate total distance from start to neighbor via current node
         int distance = graph.edgeValue(node, neighbor).orElseThrow(IllegalStateException::new);
         int totalDistance = nodeWrapper.getTotalDistance() + distance;
 
@@ -65,12 +65,15 @@ public class DijkstraWithTreeSet {
         // Neighbor discovered, but total distance via current node is shorter?
         // --> Update total distance and predecessor
         else if (totalDistance < neighborWrapper.getTotalDistance()) {
+          // The position in the TreeSet won't change automatically;
+          // we have to remove and reinsert the node.
+          // Because TreeSet uses compareTo() to identity a node to remove,
+          // we have to remove it *before* we change the total distance!
+          queue.remove(neighborWrapper);
+
           neighborWrapper.setTotalDistance(totalDistance);
           neighborWrapper.setPredecessor(nodeWrapper);
 
-          // The position in the PriorityQueue won't change automatically;
-          // we have to remove and reinsert the node
-          queue.remove(neighborWrapper);
           queue.add(neighborWrapper);
         }
       }

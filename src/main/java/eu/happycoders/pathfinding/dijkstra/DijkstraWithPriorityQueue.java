@@ -51,7 +51,7 @@ public class DijkstraWithPriorityQueue {
           continue;
         }
 
-        // Calculate total distance to neighbor via current node
+        // Calculate total distance from start to neighbor via current node
         int distance = graph.edgeValue(node, neighbor).orElseThrow(IllegalStateException::new);
         int totalDistance = nodeWrapper.getTotalDistance() + distance;
 
