@@ -66,8 +66,8 @@ public class AStarWithPriorityQueue {
           queue.add(neighborWrapper);
         }
 
-        // Neighbor discovered, but total distance via current node is shorter?
-        // --> Update total distance and predecessor
+        // Neighbor discovered, but total cost via current node is lower?
+        // --> Update costs and predecessor
         else if (totalCostFromStart < neighborWrapper.getTotalCostFromStart()) {
           neighborWrapper.setTotalCostFromStart(totalCostFromStart);
           neighborWrapper.setPredecessor(nodeWrapper);
