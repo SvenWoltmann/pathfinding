@@ -8,6 +8,7 @@ Source code for the HappyCoders.eu article series on pathfinding algorithms:
 * Part 2: [Dijkstra’s Algorithm (With Java Examples)](https://www.happycoders.eu/algorithms/dijkstras-algorithm-java/)
 * Part 3: [A* Search Algorithm (With Java Examples)](https://www.happycoders.eu/algorithms/a-star-algorithm-java/)
 * Part 4: [Bellman-Ford Algorithm (With Java Examples)](https://www.happycoders.eu/algorithms/bellman-ford-algorithm-java/)
+* Part 5: [Floyd-Warshall Algorithm (With Java Examples)](https://www.happycoders.eu/algorithms/floyd-warshall-algorithm-java/)
 
 ## German Articles
 
@@ -15,3 +16,4 @@ Source code for the HappyCoders.eu article series on pathfinding algorithms:
 * Teil 2: [Dijkstra-Algorithmus (mit Java-Beispiel)](https://www.happycoders.eu/de/algorithmen/dijkstra-algorithmus-java/)
 * Teil 3: [A*-Algorithmus (mit Java-Beispiel)](https://www.happycoders.eu/de/algorithmen/a-stern-algorithmus-java/)
 * Teil 4: [Bellman-Ford-Algorithmus (mit Java-Beispiel)](https://www.happycoders.eu/de/algorithmen/bellman-ford-algorithmus-java/)
+* Teil 5: [Floyd-Warshall-Algorithmus (mit Java-Beispiel)](https://www.happycoders.eu/de/algorithmen/floyd-warshall-algorithmus-java/)
