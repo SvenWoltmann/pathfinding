@@ -1,6 +1,8 @@
 package eu.happycoders.pathfinding.astar;
 
-import com.google.common.graph.*;
+import com.google.common.graph.MutableValueGraph;
+import com.google.common.graph.ValueGraph;
+import com.google.common.graph.ValueGraphBuilder;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TestGraphFactory {

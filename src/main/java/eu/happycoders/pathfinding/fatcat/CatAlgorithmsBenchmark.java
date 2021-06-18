@@ -1,9 +1,17 @@
 package eu.happycoders.pathfinding.fatcat;
 
 import eu.happycoders.pathfinding.common.Statistics;
-import eu.happycoders.pathfinding.fatcat.algorithm.*;
-import eu.happycoders.pathfinding.fatcat.common.*;
-import java.util.*;
+import eu.happycoders.pathfinding.fatcat.algorithm.CatAlgorithm;
+import eu.happycoders.pathfinding.fatcat.algorithm.CatAlgorithmFrom1990;
+import eu.happycoders.pathfinding.fatcat.algorithm.CatAlgorithmFrom2020;
+import eu.happycoders.pathfinding.fatcat.algorithm.CatAlgorithmFrom2020Opt;
+import eu.happycoders.pathfinding.fatcat.common.GameState;
+import eu.happycoders.pathfinding.fatcat.common.LabFactory;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 /**
  * Compares the performance of the 1990 and 2020 cat algorithmss.

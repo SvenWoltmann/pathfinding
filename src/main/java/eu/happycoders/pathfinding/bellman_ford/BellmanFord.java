@@ -1,7 +1,12 @@
 package eu.happycoders.pathfinding.bellman_ford;
 
-import com.google.common.graph.*;
-import java.util.*;
+import com.google.common.graph.EndpointPair;
+import com.google.common.graph.ValueGraph;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Implementation of the Bellman Ford Algorithm.

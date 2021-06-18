@@ -1,8 +1,10 @@
 package eu.happycoders.pathfinding.astar;
 
-import com.google.common.graph.*;
+import com.google.common.graph.EndpointPair;
+import com.google.common.graph.ValueGraph;
 import java.util.function.Function;
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HeuristicForNodesWithXYCoordinates implements Function<NodeWithXYCoordinates, Double> {
 

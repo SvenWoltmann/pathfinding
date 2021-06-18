@@ -1,6 +1,7 @@
 package eu.happycoders.pathfinding.fatcat.algorithm;
 
-import eu.happycoders.pathfinding.fatcat.common.*;
+import eu.happycoders.pathfinding.fatcat.common.Direction;
+import eu.happycoders.pathfinding.fatcat.common.GameState;
 
 /**
  * Shortest-path algorithm for finding the shortest path from cat to mouse in the labyrinth.

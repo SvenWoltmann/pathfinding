@@ -1,6 +1,7 @@
 package eu.happycoders.pathfinding.common;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Statistics utilities.

@@ -1,6 +1,8 @@
 package eu.happycoders.pathfinding.dijkstra;
 
-import com.google.common.graph.*;
+import com.google.common.graph.MutableValueGraph;
+import com.google.common.graph.ValueGraph;
+import com.google.common.graph.ValueGraphBuilder;
 import java.util.List;
 
 /**

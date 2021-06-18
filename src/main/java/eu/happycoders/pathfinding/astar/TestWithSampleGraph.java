@@ -1,10 +1,14 @@
 package eu.happycoders.pathfinding.astar;
 
-import com.google.common.graph.*;
-import java.util.*;
+import com.google.common.graph.MutableValueGraph;
+import com.google.common.graph.ValueGraph;
+import com.google.common.graph.ValueGraphBuilder;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Tests the implementation of the A* algorithm using the following sample graph:

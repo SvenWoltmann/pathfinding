@@ -1,7 +1,11 @@
 package eu.happycoders.pathfinding.fatcat;
 
-import eu.happycoders.pathfinding.fatcat.algorithm.*;
-import eu.happycoders.pathfinding.fatcat.common.*;
+import eu.happycoders.pathfinding.fatcat.algorithm.CatAlgorithm;
+import eu.happycoders.pathfinding.fatcat.algorithm.CatAlgorithmFrom1990;
+import eu.happycoders.pathfinding.fatcat.algorithm.CatAlgorithmFrom2020;
+import eu.happycoders.pathfinding.fatcat.algorithm.CatAlgorithmFrom2020Opt;
+import eu.happycoders.pathfinding.fatcat.common.GameState;
+import eu.happycoders.pathfinding.fatcat.common.LabFactory;
 
 /**
  * Tests the 1990 and 2020 cat algorithms with random positions for cat and mouse.
