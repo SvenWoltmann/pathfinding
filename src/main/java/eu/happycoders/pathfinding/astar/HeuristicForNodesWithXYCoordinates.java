@@ -57,13 +57,15 @@ public class HeuristicForNodesWithXYCoordinates implements Function<NodeWithXYCo
         graph.edgeValue(edge).orElseThrow(() -> new IllegalArgumentException("Graph is empty"));
     double speed = euclideanDistance / cost;
 
-    LOG.debug(
-        "Calculated speed from {} to {}: euclideanDistance = {}, cost = {} --> speed = {}",
-        edge.nodeU(),
-        edge.nodeV(),
-        euclideanDistance,
-        cost,
-        speed);
+    if (LOG.isDebugEnabled()) {
+      LOG.debug(
+          "Calculated speed from {} to {}: euclideanDistance = {}, cost = {} --> speed = {}",
+          edge.nodeU(),
+          edge.nodeV(),
+          euclideanDistance,
+          cost,
+          speed);
+    }
 
     return speed;
   }
