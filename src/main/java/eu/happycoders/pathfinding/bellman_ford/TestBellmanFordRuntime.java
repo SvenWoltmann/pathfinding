@@ -2,7 +2,6 @@ package eu.happycoders.pathfinding.bellman_ford;
 
 import com.google.common.graph.*;
 import eu.happycoders.pathfinding.common.Statistics;
-
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 

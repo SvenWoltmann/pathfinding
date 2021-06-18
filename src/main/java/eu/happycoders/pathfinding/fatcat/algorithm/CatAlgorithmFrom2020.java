@@ -1,7 +1,6 @@
 package eu.happycoders.pathfinding.fatcat.algorithm;
 
 import eu.happycoders.pathfinding.fatcat.common.*;
-
 import java.util.*;
 
 /**

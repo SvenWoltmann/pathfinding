@@ -2,7 +2,6 @@ package eu.happycoders.pathfinding.astar;
 
 import com.google.common.graph.ValueGraph;
 import eu.happycoders.pathfinding.common.Statistics;
-
 import java.util.*;
 
 public class TestAStarRuntime {

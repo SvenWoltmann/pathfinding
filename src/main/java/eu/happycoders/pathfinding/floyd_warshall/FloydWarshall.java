@@ -1,7 +1,6 @@
 package eu.happycoders.pathfinding.floyd_warshall;
 
 import com.google.common.graph.ValueGraph;
-
 import java.util.Optional;
 
 /**

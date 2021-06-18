@@ -1,7 +1,6 @@
 package eu.happycoders.pathfinding.astar;
 
 import com.google.common.graph.ValueGraph;
-
 import java.util.*;
 import java.util.function.Function;
 

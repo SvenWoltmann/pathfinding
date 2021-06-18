@@ -1,12 +1,11 @@
 package eu.happycoders.pathfinding.bellman_ford;
 
 import com.google.common.graph.*;
-import eu.happycoders.pathfinding.dijkstra.DijkstraWithPriorityQueue;
-
 import java.util.List;
 
 /**
- * Tests the implementation of the Bellman Ford Algorithm using the following sample graph containing a negative cycle:
+ * Tests the implementation of the Bellman Ford Algorithm using the following sample graph
+ * containing a negative cycle:
  *
  * <pre>
  *                +--->( C )----+

@@ -1,11 +1,10 @@
 package eu.happycoders.pathfinding.astar;
 
 import com.google.common.graph.*;
-import org.slf4j.*;
-
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import org.slf4j.*;
 
 /**
  * Tests the implementation of the A* algorithm using the following sample graph:

@@ -16,7 +16,8 @@ public class LabFactory {
    * @return labyrinth 1
    */
   public static boolean[][] createLab1() {
-    return parseLab("""
+    return parseLab(
+        """
             ###############################
             #                             #
             # ############# ############# #

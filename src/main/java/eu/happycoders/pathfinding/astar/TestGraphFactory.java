@@ -1,7 +1,6 @@
 package eu.happycoders.pathfinding.astar;
 
 import com.google.common.graph.*;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TestGraphFactory {

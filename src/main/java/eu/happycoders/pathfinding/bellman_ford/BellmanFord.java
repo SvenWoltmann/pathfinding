@@ -1,7 +1,6 @@
 package eu.happycoders.pathfinding.bellman_ford;
 
 import com.google.common.graph.*;
-
 import java.util.*;
 
 /**
