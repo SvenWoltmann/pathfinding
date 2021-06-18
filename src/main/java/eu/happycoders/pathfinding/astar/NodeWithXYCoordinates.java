@@ -32,15 +32,15 @@ public class NodeWithXYCoordinates implements Comparable<NodeWithXYCoordinates> 
   }
 
   @Override
-  public boolean equals(Object o) {
-    if (this == o) {
+  public boolean equals(Object other) {
+    if (this == other) {
       return true;
     }
-    if (o == null || getClass() != o.getClass()) {
+    if (other == null || getClass() != other.getClass()) {
       return false;
     }
 
-    NodeWithXYCoordinates aStarNode = (NodeWithXYCoordinates) o;
+    NodeWithXYCoordinates aStarNode = (NodeWithXYCoordinates) other;
 
     return Objects.equals(name, aStarNode.name);
   }
@@ -51,8 +51,8 @@ public class NodeWithXYCoordinates implements Comparable<NodeWithXYCoordinates> 
   }
 
   @Override
-  public int compareTo(NodeWithXYCoordinates o) {
-    return name.compareTo(o.name);
+  public int compareTo(NodeWithXYCoordinates other) {
+    return name.compareTo(other.name);
   }
 
   @Override

@@ -40,10 +40,10 @@ class NodeWrapperForTreeSet<N extends Comparable<N>>
   }
 
   @Override
-  public int compareTo(NodeWrapperForTreeSet<N> o) {
-    int compare = Integer.compare(this.totalDistance, o.totalDistance);
+  public int compareTo(NodeWrapperForTreeSet<N> other) {
+    int compare = Integer.compare(this.totalDistance, other.totalDistance);
     if (compare == 0) {
-      compare = node.compareTo(o.node);
+      compare = node.compareTo(other.node);
     }
     return compare;
   }
@@ -53,8 +53,8 @@ class NodeWrapperForTreeSet<N extends Comparable<N>>
   // node.
 
   @Override
-  public boolean equals(Object o) {
-    return super.equals(o);
+  public boolean equals(Object other) {
+    return super.equals(other);
   }
 
   @Override

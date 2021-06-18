@@ -39,16 +39,16 @@ class NodeWrapper<N> implements Comparable<NodeWrapper<N>> {
   }
 
   @Override
-  public int compareTo(NodeWrapper<N> o) {
-    return Integer.compare(this.totalDistance, o.totalDistance);
+  public int compareTo(NodeWrapper<N> other) {
+    return Integer.compare(this.totalDistance, other.totalDistance);
   }
 
   // Using identity for equals and hashcode here, which is much faster.
   // It's sufficient as within the algorithm, we have only one NodeWrapper instance per node.
 
   @Override
-  public boolean equals(Object o) {
-    return super.equals(o);
+  public boolean equals(Object other) {
+    return super.equals(other);
   }
 
   @Override

@@ -53,10 +53,10 @@ public class AStarNodeWrapper<N extends Comparable<N>> implements Comparable<ASt
   }
 
   @Override
-  public int compareTo(AStarNodeWrapper<N> o) {
-    int compare = Double.compare(this.costSum, o.costSum);
+  public int compareTo(AStarNodeWrapper<N> other) {
+    int compare = Double.compare(this.costSum, other.costSum);
     if (compare == 0) {
-      compare = node.compareTo(o.node);
+      compare = node.compareTo(other.node);
     }
     return compare;
   }
@@ -66,8 +66,8 @@ public class AStarNodeWrapper<N extends Comparable<N>> implements Comparable<ASt
   // instance per node.
 
   @Override
-  public boolean equals(Object o) {
-    return super.equals(o);
+  public boolean equals(Object other) {
+    return super.equals(other);
   }
 
   @Override

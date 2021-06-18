@@ -42,8 +42,8 @@ class NodeWrapper<N> {
   // It's sufficient as within the algorithm, we have only one NodeWrapper instance per node.
 
   @Override
-  public boolean equals(Object o) {
-    return super.equals(o);
+  public boolean equals(Object other) {
+    return super.equals(other);
   }
 
   @Override
