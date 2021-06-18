@@ -9,6 +9,7 @@ import eu.happycoders.pathfinding.fatcat.common.*;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
+@SuppressWarnings("squid:S2259") // I don't want to fix my code from 1990 ;-)
 public class CatAlgorithmFrom1990 implements CatAlgorithm {
 
   // Global variables in the Turbo Pascal code

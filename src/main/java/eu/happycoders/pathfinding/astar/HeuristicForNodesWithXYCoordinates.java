@@ -37,7 +37,7 @@ public class HeuristicForNodesWithXYCoordinates implements Function<NodeWithXYCo
     return graph.edges().stream()
         .map(edge -> calculateSpeed(graph, edge))
         .max(Double::compare)
-        .get();
+        .orElseThrow(() -> new IllegalArgumentException("Graph is empty"));
   }
 
   /**
@@ -51,7 +51,8 @@ public class HeuristicForNodesWithXYCoordinates implements Function<NodeWithXYCo
   private static double calculateSpeed(
       ValueGraph<NodeWithXYCoordinates, Double> graph, EndpointPair<NodeWithXYCoordinates> edge) {
     double euclideanDistance = calculateEuclideanDistance(edge.nodeU(), edge.nodeV());
-    double cost = graph.edgeValue(edge).get();
+    double cost =
+        graph.edgeValue(edge).orElseThrow(() -> new IllegalArgumentException("Graph is empty"));
     double speed = euclideanDistance / cost;
 
     LOG.debug(
