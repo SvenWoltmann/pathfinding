@@ -61,19 +61,10 @@ public class AStarNodeWrapper<N extends Comparable<N>> implements Comparable<ASt
     return compare;
   }
 
-  // Using identity for equals and hashcode here, which is much faster.
+  // Not overriding equals() and hashcode(), to use Object's methods.
+  // Object's methods use object identity, which is much faster.
   // It's sufficient as within the algorithm, we have only one AStarNodeWrapper
   // instance per node.
-
-  @Override
-  public boolean equals(Object other) {
-    return super.equals(other);
-  }
-
-  @Override
-  public int hashCode() {
-    return super.hashCode();
-  }
 
   @Override
   public String toString() {

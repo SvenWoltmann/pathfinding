@@ -48,17 +48,9 @@ class NodeWrapperForTreeSet<N extends Comparable<N>>
     return compare;
   }
 
-  // Using identity for equals and hashcode here, which is much faster.
-  // It's sufficient as within the algorithm, we have only one NodeWrapperForTreeSet instance per
-  // node.
+  // Not overriding equals() and hashcode(), to use Object's methods.
+  // Object's methods use object identity, which is much faster.
+  // It's sufficient as within the algorithm, we have only one NodeWrapperForTreeSet
+  // instance per node.
 
-  @Override
-  public boolean equals(Object other) {
-    return super.equals(other);
-  }
-
-  @Override
-  public int hashCode() {
-    return super.hashCode();
-  }
 }
