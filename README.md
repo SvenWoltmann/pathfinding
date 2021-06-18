@@ -1,5 +1,11 @@
 # Pathfinding Algorithms
 
+[![Build](https://github.com/SvenWoltmann/pathfinding/actions/workflows/build.yml/badge.svg)](https://github.com/SvenWoltmann/pathfinding/actions/workflows/build.yml)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_pathfinding&metric=coverage)](https://sonarcloud.io/dashboard?id=SvenWoltmann_pathfinding)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_pathfinding&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=SvenWoltmann_pathfinding)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_pathfinding&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=SvenWoltmann_pathfinding)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_pathfinding&metric=security_rating)](https://sonarcloud.io/dashboard?id=SvenWoltmann_pathfinding)
+
 Source code for the HappyCoders.eu article series on pathfinding algorithms:
 
 ## English Articles
