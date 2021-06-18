@@ -7,6 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
+@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this test program
 public class GameState {
 
   private final boolean[][] lab;

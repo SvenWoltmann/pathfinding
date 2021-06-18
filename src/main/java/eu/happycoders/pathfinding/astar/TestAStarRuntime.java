@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this test program
 public class TestAStarRuntime {
 
   private static final int MAX_WARMUPS = 1;

@@ -28,6 +28,7 @@ import java.util.List;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
+@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this test program
 public class TestWithSampleGraph {
   public static void main(String[] args) {
     ValueGraph<String, Integer> graph = createSampleGraph();

@@ -12,6 +12,7 @@ import eu.happycoders.pathfinding.fatcat.common.LabFactory;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
+@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this test program
 public class CatAlgorithmsTest {
 
   public static void main(String[] args) {

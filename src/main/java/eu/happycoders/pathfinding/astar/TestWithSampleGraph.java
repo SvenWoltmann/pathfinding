@@ -53,6 +53,7 @@ public class TestWithSampleGraph {
     findAndPrintShortestPath(graph, nodeByName.get("E"), nodeByName.get("H"));
   }
 
+  @SuppressWarnings("PMD.ShortVariable") // It's pretty clear, what a, b, c, ... stand for ;-)
   private static ValueGraph<NodeWithXYCoordinates, Double> createSampleGraph() {
     MutableValueGraph<NodeWithXYCoordinates, Double> graph = ValueGraphBuilder.undirected().build();
 

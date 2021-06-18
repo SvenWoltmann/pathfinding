@@ -168,6 +168,9 @@
               <rulesets>
                 <ruleset>ruleset.xml</ruleset>
               </rulesets>
+              <excludes>
+                <exclude>.*/CatAlgorithmFrom1990.java</exclude>
+              </excludes>
             </configuration>
             <dependencies>
               <dependency>
@@ -198,6 +201,7 @@
             <version>${checkstyle-plugin.version}</version>
             <configuration>
               <configLocation>${project.basedir}/google_checks.xml</configLocation>
+              <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
             </configuration>
             <dependencies>
               <dependency>

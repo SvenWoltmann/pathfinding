@@ -12,6 +12,7 @@ import java.util.Optional;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
+@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // Using System.out only for debug output
 public class FloydWarshallMatrices {
 
   private final int n;
