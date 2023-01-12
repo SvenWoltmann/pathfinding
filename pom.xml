@@ -25,7 +25,7 @@
     <spotbugs.version>4.7.3.0</spotbugs.version>
     <pmd-plugin.version>3.20.0</pmd-plugin.version>
     <pmd.version>6.53.0</pmd.version>
-    <checkstyle-plugin.version>3.2.0</checkstyle-plugin.version>
+    <checkstyle-plugin.version>3.2.1</checkstyle-plugin.version>
     <checkstyle.version>10.6.0</checkstyle.version>
 
     <!-- SonarCloud setup -->
