@@ -19,7 +19,7 @@
 
     <!-- Plugin versions -->
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
-    <spotless.version>2.28.0</spotless.version>
+    <spotless.version>2.30.0</spotless.version>
     <google-java-format.version>1.10.0</google-java-format.version>
     <jacoco.version>0.8.8</jacoco.version>
     <spotbugs.version>4.7.3.0</spotbugs.version>
