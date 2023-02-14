@@ -18,7 +18,7 @@
     <junit.version>5.9.2</junit.version>
 
     <!-- Plugin versions -->
-    <surefire-plugin.version>3.0.0-M8</surefire-plugin.version>
+    <surefire-plugin.version>3.0.0-M9</surefire-plugin.version>
     <spotless.version>2.33.0</spotless.version>
     <google-java-format.version>1.10.0</google-java-format.version>
     <jacoco.version>0.8.8</jacoco.version>
