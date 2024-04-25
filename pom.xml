@@ -23,7 +23,7 @@
     <google-java-format.version>1.10.0</google-java-format.version>
     <jacoco.version>0.8.12</jacoco.version>
     <spotbugs.version>4.8.3.1</spotbugs.version>
-    <pmd-plugin.version>3.21.2</pmd-plugin.version>
+    <pmd-plugin.version>3.22.0</pmd-plugin.version>
     <pmd.version>7.0.0</pmd.version>
     <checkstyle-plugin.version>3.3.1</checkstyle-plugin.version>
     <checkstyle.version>10.15.0</checkstyle.version>
