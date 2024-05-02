@@ -14,7 +14,7 @@
     <maven.compiler.source>17</maven.compiler.source>
 
     <!-- Version -->
-    <guava.version>33.1.0-jre</guava.version>
+    <guava.version>33.2.0-jre</guava.version>
     <junit.version>5.10.2</junit.version>
 
     <!-- Plugin versions -->
