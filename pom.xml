@@ -26,7 +26,7 @@
     <pmd-plugin.version>3.25.0</pmd-plugin.version>
     <pmd.version>7.4.0</pmd.version>
     <checkstyle-plugin.version>3.5.0</checkstyle-plugin.version>
-    <checkstyle.version>10.18.0</checkstyle.version>
+    <checkstyle.version>10.18.1</checkstyle.version>
 
     <!-- SonarCloud setup -->
     <sonar.projectKey>SvenWoltmann_pathfinding</sonar.projectKey>
