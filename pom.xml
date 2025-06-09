@@ -15,7 +15,7 @@
 
     <!-- Version -->
     <guava.version>33.4.8-jre</guava.version>
-    <junit.version>5.13.0</junit.version>
+    <junit.version>5.13.1</junit.version>
 
     <!-- Plugin versions -->
     <surefire-plugin.version>3.5.3</surefire-plugin.version>
