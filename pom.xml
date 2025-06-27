@@ -22,7 +22,7 @@
     <spotless.version>2.44.5</spotless.version>
     <google-java-format.version>1.10.0</google-java-format.version>
     <jacoco.version>0.8.13</jacoco.version>
-    <spotbugs.version>4.9.3.1</spotbugs.version>
+    <spotbugs.version>4.9.3.2</spotbugs.version>
     <pmd-plugin.version>3.27.0</pmd-plugin.version>
     <pmd.version>7.14.0</pmd.version>
     <checkstyle-plugin.version>3.6.0</checkstyle-plugin.version>
