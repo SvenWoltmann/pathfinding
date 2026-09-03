@@ -27,10 +27,29 @@
     <sonar.projectKey>SvenWoltmann_pathfinding</sonar.projectKey>
     <sonar.organization>svenwoltmann</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <!-- What Sonar takes for commented-out code here are the prose comments of the algorithm listings. -->
+    <sonar.issue.ignore.multicriteria.e5.ruleKey>java:S125</sonar.issue.ignore.multicriteria.e5.ruleKey>
+    <sonar.issue.ignore.multicriteria.e5.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e5.resourceKey>
+    <!-- The node wrappers order by cost only and are never compared with equals(); the article explains why. -->
+    <sonar.issue.ignore.multicriteria.e4.ruleKey>java:S1210</sonar.issue.ignore.multicriteria.e4.ruleKey>
+    <sonar.issue.ignore.multicriteria.e4.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e4.resourceKey>
+    <!-- The A* heuristic is a Function<N, Double> in the article; ToDoubleFunction would change the listings. -->
+    <sonar.issue.ignore.multicriteria.e3.ruleKey>java:S4276</sonar.issue.ignore.multicriteria.e3.ruleKey>
+    <sonar.issue.ignore.multicriteria.e3.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e3.resourceKey>
+    <!-- The algorithm cores (Floyd-Warshall, Bellman-Ford, the cat algorithms) are as complex as the algorithms; the articles walk through them line by line. -->
+    <sonar.issue.ignore.multicriteria.e2.ruleKey>java:S3776</sonar.issue.ignore.multicriteria.e2.ruleKey>
+    <sonar.issue.ignore.multicriteria.e2.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e2.resourceKey>
+
+    <sonar.issue.ignore.multicriteria>e1,e2,e3,e4,e5</sonar.issue.ignore.multicriteria>
+    <!-- The algorithms return null for 'no path', as the articles show them; an empty list would change the API the articles explain. -->
+    <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S1168</sonar.issue.ignore.multicriteria.e1.ruleKey>
+    <sonar.issue.ignore.multicriteria.e1.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
 
     <sonar.coverage.jacoco.xmlReportPaths>${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     <!-- Coverage counts the algorithms, not the runtime measurement programs, the demo and the benchmark. -->
     <sonar.coverage.exclusions>**/Test*Runtime.java,**/CatAlgorithmsDemo.java,**/*Benchmark.java</sonar.coverage.exclusions>
+    <!-- CatAlgorithmFrom1990 is deliberately written the way it was in 1990; it is not analysed. -->
+    <sonar.exclusions>**/CatAlgorithmFrom1990.java</sonar.exclusions>
   </properties>
 
   <dependencies>

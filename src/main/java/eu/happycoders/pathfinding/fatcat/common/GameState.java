@@ -11,7 +11,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GameState {
 
   private final boolean[][] lab;
-  private final int mx, my, cx, cy; // Mouse and cat coordinates
+  // Mouse and cat coordinates
+  private final int mx;
+  private final int my;
+  private final int cx;
+  private final int cy;
   private Direction catDir = null; // Cat's direction
 
   public GameState(boolean[][] lab) {
@@ -37,18 +41,18 @@ public class GameState {
 
   public GameState withRandomCatMousePositions() {
     // Position cat on any even field
-    int cx = 1 + 2 * ThreadLocalRandom.current().nextInt(14);
-    int cy = 1 + 2 * ThreadLocalRandom.current().nextInt(10);
+    int newCx = 1 + 2 * ThreadLocalRandom.current().nextInt(14);
+    int newCy = 1 + 2 * ThreadLocalRandom.current().nextInt(10);
 
-    int mx;
-    int my;
+    int newMx;
+    int newMy;
 
     // Repeat in case mouse is positioned on a labyrinth wall or on the cat
     do {
-      mx = 1 + ThreadLocalRandom.current().nextInt(28);
-      my = 1 + ThreadLocalRandom.current().nextInt(20);
-    } while (lab[my][mx] || mx == cx && my == cy);
-    return new GameState(this.lab, mx, my, cx, cy, null);
+      newMx = 1 + ThreadLocalRandom.current().nextInt(28);
+      newMy = 1 + ThreadLocalRandom.current().nextInt(20);
+    } while (lab[newMy][newMx] || newMx == newCx && newMy == newCy);
+    return new GameState(this.lab, newMx, newMy, newCx, newCy, null);
   }
 
   public GameState withMoveCat(Direction dir) {
