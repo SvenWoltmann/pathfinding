@@ -22,20 +22,12 @@
     <spotless.version>3.10.1</spotless.version>
     <google-java-format.version>1.30.0</google-java-format.version>
     <jacoco.version>0.8.15</jacoco.version>
-    <spotbugs.version>4.10.4.0</spotbugs.version>
-    <pmd-plugin.version>3.28.0</pmd-plugin.version>
-    <pmd.version>7.27.0</pmd.version>
-    <checkstyle-plugin.version>3.6.0</checkstyle-plugin.version>
-    <checkstyle.version>14.1.0</checkstyle.version>
 
-    <!-- SonarCloud setup -->
+    <!-- SonarQube Cloud setup -->
     <sonar.projectKey>SvenWoltmann_pathfinding</sonar.projectKey>
     <sonar.organization>svenwoltmann</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
-    <sonar.java.spotbugs.reportPaths>./target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
-    <sonar.java.pmd.reportPaths>./target/pmd.xml</sonar.java.pmd.reportPaths>
-    <sonar.java.checkstyle.reportPaths>./target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
     <sonar.coverage.jacoco.xmlReportPaths>${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
 
@@ -138,90 +130,7 @@
       </build>
     </profile>
 
-    <!-- Use this profile to run a static code analysis with SpotBugs, PMD, Checkstyle -->
-    <profile>
-      <id>code-analysis</id>
-      <build>
-        <plugins>
-          <!-- Find bugs with SpotBugs -->
-          <plugin>
-            <groupId>com.github.spotbugs</groupId>
-            <artifactId>spotbugs-maven-plugin</artifactId>
-            <version>${spotbugs.version}</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>spotbugs</goal>
-                </goals>
-                <phase>verify</phase>
-              </execution>
-            </executions>
-          </plugin>
 
-          <!-- Find bugs with PMD -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-pmd-plugin</artifactId>
-            <version>${pmd-plugin.version}</version>
-            <configuration>
-              <targetJdk>16</targetJdk>
-              <rulesets>
-                <ruleset>ruleset.xml</ruleset>
-              </rulesets>
-              <excludes>
-                <exclude>.*/CatAlgorithmFrom1990.java</exclude>
-              </excludes>
-            </configuration>
-            <dependencies>
-              <dependency>
-                <groupId>net.sourceforge.pmd</groupId>
-                <artifactId>pmd-core</artifactId>
-                <version>${pmd.version}</version>
-              </dependency>
-              <dependency>
-                <groupId>net.sourceforge.pmd</groupId>
-                <artifactId>pmd-java</artifactId>
-                <version>${pmd.version}</version>
-              </dependency>
-            </dependencies>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>pmd</goal>
-                </goals>
-                <phase>verify</phase>
-              </execution>
-            </executions>
-          </plugin>
-
-          <!-- Validate code style with Checkstyle -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-checkstyle-plugin</artifactId>
-            <version>${checkstyle-plugin.version}</version>
-            <configuration>
-              <configLocation>${project.basedir}/google_checks.xml</configLocation>
-              <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
-            </configuration>
-            <dependencies>
-              <dependency>
-                <groupId>com.puppycrawl.tools</groupId>
-                <artifactId>checkstyle</artifactId>
-                <version>${checkstyle.version}</version>
-              </dependency>
-            </dependencies>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>checkstyle</goal>
-                </goals>
-                <phase>verify</phase>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
   </profiles>
 
 </project>
