@@ -16,7 +16,10 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v3.1.0
+        # Pinned to the commit, not the tag: a tag can be moved, and this
+        # workflow hands the action a token with contents: write.
+        # Dependabot keeps SHA pins current and updates the comment with them.
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
