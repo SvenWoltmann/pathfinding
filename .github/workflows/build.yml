@@ -18,11 +18,18 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-      - name: Set up JDK 17
+      # The JDK that RUNS the build, not the one it targets: the sources stay
+      # on maven.compiler.source/target 17. Dependabot keeps raising the plugin
+      # versions, each with its own JDK floor, without knowing which JDK the
+      # workflow uses - a recent JDK buys room before the next floor is raised.
+      - name: Set up JDK
         uses: actions/setup-java@v6
         with:
-          distribution: 'adopt'
-          java-version: 17
+          # 'adopt' was the AdoptOpenJDK alias; setup-java dropped it after the
+          # project became Eclipse Temurin. Dependabot keeps the action version
+          # current but cannot know that an input value went away.
+          distribution: 'temurin'
+          java-version: 25
 
       - name: Cache SonarCloud packages
         uses: actions/cache@v6
