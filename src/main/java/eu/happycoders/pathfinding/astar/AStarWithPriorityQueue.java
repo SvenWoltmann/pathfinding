@@ -19,6 +19,8 @@ import java.util.function.Function;
  */
 public class AStarWithPriorityQueue {
 
+  private AStarWithPriorityQueue() {}
+
   /**
    * Finds the shortest path from {@code source} to {@code target}.
    *

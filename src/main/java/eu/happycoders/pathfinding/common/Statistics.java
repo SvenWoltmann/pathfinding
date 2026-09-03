@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class Statistics {
 
+  private Statistics() {}
+
   /**
    * Calculates the median of the given list of values.
    *

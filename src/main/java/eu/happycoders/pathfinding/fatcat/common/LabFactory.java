@@ -7,6 +7,8 @@ package eu.happycoders.pathfinding.fatcat.common;
  */
 public class LabFactory {
 
+  private LabFactory() {}
+
   private static final int WIDTH = 31;
   private static final int HEIGHT = 23;
 

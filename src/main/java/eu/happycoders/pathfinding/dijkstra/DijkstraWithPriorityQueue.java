@@ -18,6 +18,8 @@ import java.util.Set;
  */
 public class DijkstraWithPriorityQueue {
 
+  private DijkstraWithPriorityQueue() {}
+
   // Puts only the first into the queue
 
   /**

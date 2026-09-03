@@ -18,6 +18,8 @@ import java.util.TreeSet;
  */
 public class DijkstraWithTreeSet {
 
+  private DijkstraWithTreeSet() {}
+
   /**
    * Finds the shortest path from {@code source} to {@code target}.
    *

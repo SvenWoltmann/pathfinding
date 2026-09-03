@@ -11,6 +11,8 @@ import java.util.Optional;
 @SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // Using System.out only for debug output
 public class FloydWarshall {
 
+  private FloydWarshall() {}
+
   /**
    * Finds the shortest paths between all node pairs in the given graph.
    *

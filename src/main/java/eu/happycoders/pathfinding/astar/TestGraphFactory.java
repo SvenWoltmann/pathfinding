@@ -7,6 +7,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class TestGraphFactory {
 
+  private TestGraphFactory() {}
+
   public static NodeWithXYCoordinates[] createNodes(int numNodes) {
     ThreadLocalRandom random = ThreadLocalRandom.current();
 

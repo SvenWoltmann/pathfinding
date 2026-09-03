@@ -15,6 +15,8 @@ import java.util.Map;
  */
 public class BellmanFord {
 
+  private BellmanFord() {}
+
   /**
    * Finds the shortest path from {@code source} to {@code target}.
    *
