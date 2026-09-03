@@ -1,5 +1,7 @@
 package eu.happycoders.pathfinding.astar;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
@@ -7,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
- * Tests the implementation of the A* algorithm using the following sample graph:
+ * Tests the A* algorithm on the following sample graph:
  *
  * <pre>
  *       A
@@ -33,24 +35,38 @@ import org.slf4j.LoggerFactory;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
-public class TestWithSampleGraph {
+class TestWithSampleGraph {
 
-  private static final Logger LOG =
-      LoggerFactory.getLogger(HeuristicForNodesWithXYCoordinates.class);
-
-  public static void main(String[] args) {
+  @ParameterizedTest(name = "shortest path from {0} to {1} is {2}")
+  @CsvSource({
+    "D, H, 'D C G H'",
+    "A, F, 'A E D F'",
+    "E, H, 'E D C G H'",
+    "B, H, 'B E D C G H'",
+    "B, I, 'B I'",
+  })
+  void findShortestPath_sampleGraph_returnsTheExpectedPath(
+      String source, String target, String expectedPath) {
     ValueGraph<NodeWithXYCoordinates, Double> graph = createSampleGraph();
-
-    LOG.info("graph = {}", graph);
-
     Map<String, NodeWithXYCoordinates> nodeByName = createNodeByNameMap(graph);
+    NodeWithXYCoordinates targetNode = nodeByName.get(target);
+    Function<NodeWithXYCoordinates, Double> heuristic =
+        new HeuristicForNodesWithXYCoordinates(graph, targetNode);
 
-    findAndPrintShortestPath(graph, nodeByName.get("D"), nodeByName.get("H"));
-    findAndPrintShortestPath(graph, nodeByName.get("A"), nodeByName.get("F"));
-    findAndPrintShortestPath(graph, nodeByName.get("E"), nodeByName.get("H"));
-    findAndPrintShortestPath(graph, nodeByName.get("B"), nodeByName.get("H"));
-    findAndPrintShortestPath(graph, nodeByName.get("B"), nodeByName.get("I"));
-    findAndPrintShortestPath(graph, nodeByName.get("E"), nodeByName.get("H"));
+    List<NodeWithXYCoordinates> shortestPath =
+        AStarWithTreeSet.findShortestPath(graph, nodeByName.get(source), targetNode, heuristic);
+
+    assertEquals(List.of(expectedPath.split(" ")), namesOf(shortestPath));
+  }
+
+  private static Map<String, NodeWithXYCoordinates> createNodeByNameMap(
+      ValueGraph<NodeWithXYCoordinates, Double> graph) {
+    return graph.nodes().stream()
+        .collect(Collectors.toMap(NodeWithXYCoordinates::getName, Function.identity()));
+  }
+
+  private static List<String> namesOf(List<NodeWithXYCoordinates> path) {
+    return path.stream().map(NodeWithXYCoordinates::getName).toList();
   }
 
   @SuppressWarnings("PMD.ShortVariable") // It's pretty clear, what a, b, c, ... stand for ;-)
@@ -81,22 +97,5 @@ public class TestWithSampleGraph {
     graph.putEdgeValue(h, i, 3.0);
 
     return graph;
-  }
-
-  private static Map<String, NodeWithXYCoordinates> createNodeByNameMap(
-      ValueGraph<NodeWithXYCoordinates, Double> graph) {
-    return graph.nodes().stream()
-        .collect(Collectors.toMap(NodeWithXYCoordinates::getName, Function.identity()));
-  }
-
-  private static void findAndPrintShortestPath(
-      ValueGraph<NodeWithXYCoordinates, Double> graph,
-      NodeWithXYCoordinates source,
-      NodeWithXYCoordinates target) {
-    Function<NodeWithXYCoordinates, Double> heuristic =
-        new HeuristicForNodesWithXYCoordinates(graph, target);
-    List<NodeWithXYCoordinates> shortestPath =
-        AStarWithTreeSet.findShortestPath(graph, source, target, heuristic);
-    LOG.info("shortestPath from {} to {} = {}", source, target, shortestPath);
   }
 }

@@ -1,12 +1,16 @@
 package eu.happycoders.pathfinding.dijkstra;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
 import java.util.List;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
- * Tests the implementation of Dijkstra's algorithm using the following sample graph:
+ * Tests Dijkstra's algorithm on the following sample graph:
  *
  * <pre>
  *       A
@@ -28,25 +32,23 @@ import java.util.List;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
-@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this test program
-public class TestWithSampleGraph {
-  public static void main(String[] args) {
+class TestWithSampleGraph {
+
+  @ParameterizedTest(name = "shortest path from {0} to {1} is {2}")
+  @CsvSource({
+    "D, H, 'D C G H'",
+    "A, F, 'A E D F'",
+    "E, H, 'E D C G H'",
+    "B, H, 'B E D C G H'",
+    "B, I, 'B I'",
+  })
+  void findShortestPath_sampleGraph_returnsTheExpectedPath(
+      String source, String target, String expectedPath) {
     ValueGraph<String, Integer> graph = createSampleGraph();
 
-    System.out.println("graph = " + graph);
-
-    findAndPrintShortestPath(graph, "D", "H");
-    findAndPrintShortestPath(graph, "A", "F");
-    findAndPrintShortestPath(graph, "E", "H");
-    findAndPrintShortestPath(graph, "B", "H");
-    findAndPrintShortestPath(graph, "B", "I");
-    findAndPrintShortestPath(graph, "E", "H");
-  }
-
-  private static void findAndPrintShortestPath(
-      ValueGraph<String, Integer> graph, String source, String target) {
     List<String> shortestPath = DijkstraWithPriorityQueue.findShortestPath(graph, source, target);
-    System.out.printf("shortestPath from %s to %s = %s%n", source, target, shortestPath);
+
+    assertEquals(List.of(expectedPath.split(" ")), shortestPath);
   }
 
   private static ValueGraph<String, Integer> createSampleGraph() {

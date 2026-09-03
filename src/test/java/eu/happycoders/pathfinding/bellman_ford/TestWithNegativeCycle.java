@@ -1,11 +1,15 @@
-package eu.happycoders.pathfinding.floyd_warshall;
+package eu.happycoders.pathfinding.bellman_ford;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
+import org.junit.jupiter.api.Test;
 
 /**
- * Tests the implementation of the Floyd-Warshall Algorithm using the following sample graph
+ * Tests the implementation of the Bellman Ford Algorithm using the following sample graph
  * containing a negative cycle:
  *
  * <pre>
@@ -19,10 +23,17 @@ import com.google.common.graph.ValueGraphBuilder;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
-public class TestWithNegativeCycle {
-  public static void main(String[] args) {
+class TestWithNegativeCycle {
+
+  @Test
+  void findShortestPath_graphWithNegativeCycle_throwsException() {
     ValueGraph<String, Integer> graph = createSampleGraph();
-    FloydWarshall.findShortestPaths(graph, true);
+
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class, () -> BellmanFord.findShortestPath(graph, "A", "E"));
+
+    assertEquals("Negative cycle detected", exception.getMessage());
   }
 
   private static ValueGraph<String, Integer> createSampleGraph() {

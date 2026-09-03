@@ -1,8 +1,13 @@
-package eu.happycoders.pathfinding.floyd_warshall;
+package eu.happycoders.pathfinding.bellman_ford;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
+import java.util.List;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Tests the implementation of the Bellman Ford Algorithm using the following sample graph:
@@ -23,23 +28,20 @@ import com.google.common.graph.ValueGraphBuilder;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
-@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this test program
-public class TestWithSampleGraphFromBellmanFord {
-  public static void main(String[] args) {
+class TestWithSampleGraph {
+
+  @ParameterizedTest(name = "shortest path from {0} to {1} is {2}")
+  @CsvSource({
+    "A, F, 'A D E B C F'",
+    "C, D, 'C B E D'",
+  })
+  void findShortestPath_sampleGraph_returnsTheExpectedPath(
+      String source, String target, String expectedPath) {
     ValueGraph<String, Integer> graph = createSampleGraph();
 
-    System.out.println("graph = " + graph);
+    List<String> shortestPath = BellmanFord.findShortestPath(graph, source, target);
 
-    findAndPrintShortestPaths(graph);
-  }
-
-  private static void findAndPrintShortestPaths(ValueGraph<String, Integer> graph) {
-    FloydWarshallMatrices shortestPaths = FloydWarshall.findShortestPaths(graph, false);
-    System.out.println("\nCosts of shortest paths:");
-    shortestPaths.print();
-
-    System.out.println("\nShortest path from A to F: " + shortestPaths.getPath("A", "F"));
-    System.out.println("Cost of shortest path:     " + shortestPaths.getCost("A", "F"));
+    assertEquals(List.of(expectedPath.split(" ")), shortestPath);
   }
 
   private static ValueGraph<String, Integer> createSampleGraph() {

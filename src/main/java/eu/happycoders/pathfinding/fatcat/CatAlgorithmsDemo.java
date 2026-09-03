@@ -8,20 +8,21 @@ import eu.happycoders.pathfinding.fatcat.common.GameState;
 import eu.happycoders.pathfinding.fatcat.common.LabFactory;
 
 /**
- * Tests the 1990 and 2020 cat algorithms with random positions for cat and mouse.
+ * Demonstrates the 1990 and 2020 cat algorithms with random positions for cat and mouse: prints the
+ * maze and the cat's steps to the mouse.
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
-@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this test program
-public class CatAlgorithmsTest {
+@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this demo program
+public class CatAlgorithmsDemo {
 
   public static void main(String[] args) {
-    testWith(new CatAlgorithmFrom1990());
-    testWith(new CatAlgorithmFrom2020());
-    testWith(new CatAlgorithmFrom2020Opt());
+    demoWith(new CatAlgorithmFrom1990());
+    demoWith(new CatAlgorithmFrom2020());
+    demoWith(new CatAlgorithmFrom2020Opt());
   }
 
-  private static void testWith(CatAlgorithm algorithm) {
+  private static void demoWith(CatAlgorithm algorithm) {
     System.out.printf("Algorithm: %s%n%n", algorithm.getClass().getSimpleName());
 
     GameState gameState = new GameState(LabFactory.createLab1()).withRandomCatMousePositions();

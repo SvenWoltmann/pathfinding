@@ -1,9 +1,15 @@
-package eu.happycoders.pathfinding.bellman_ford;
+package eu.happycoders.pathfinding.floyd_warshall;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
 import java.util.List;
+import java.util.Optional;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Tests the implementation of the Bellman Ford Algorithm using the following sample graph:
@@ -24,21 +30,34 @@ import java.util.List;
  *
  * @author <a href="sven@happycoders.eu">Sven Woltmann</a>
  */
-@SuppressWarnings({"squid:S106", "PMD.SystemPrintln"}) // System.out is OK in this test program
-public class TestWithSampleGraph {
-  public static void main(String[] args) {
+class TestWithSampleGraphFromBellmanFord {
+
+  @Test
+  void findShortestPaths_sampleGraph_returnsTheExpectedPathFromAToF() {
     ValueGraph<String, Integer> graph = createSampleGraph();
 
-    System.out.println("graph = " + graph);
+    FloydWarshallMatrices shortestPaths = FloydWarshall.findShortestPaths(graph, false);
 
-    findAndPrintShortestPath(graph, "A", "F");
-    findAndPrintShortestPath(graph, "C", "D");
+    assertEquals(
+        Optional.of(List.of("A", "D", "E", "B", "C", "F")), shortestPaths.getPath("A", "F"));
+    assertEquals(6, shortestPaths.getCost("A", "F"));
   }
 
-  private static void findAndPrintShortestPath(
-      ValueGraph<String, Integer> graph, String source, String target) {
-    List<String> shortestPath = BellmanFord.findShortestPath(graph, source, target);
-    System.out.printf("shortestPath from %s to %s = %s%n", source, target, shortestPath);
+  @ParameterizedTest(name = "cost of the shortest path from {0} to {1} is {2}")
+  @CsvSource({
+    "A, B, 3",
+    "B, A, 11",
+    "C, F, -2",
+    "E, B, -3",
+    "F, A, 20",
+  })
+  void findShortestPaths_sampleGraph_returnsTheExpectedCosts(
+      String source, String target, int expectedCost) {
+    ValueGraph<String, Integer> graph = createSampleGraph();
+
+    FloydWarshallMatrices shortestPaths = FloydWarshall.findShortestPaths(graph, false);
+
+    assertEquals(expectedCost, shortestPaths.getCost(source, target));
   }
 
   private static ValueGraph<String, Integer> createSampleGraph() {
