@@ -29,6 +29,8 @@
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
     <sonar.coverage.jacoco.xmlReportPaths>${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+    <!-- Coverage counts the algorithms, not the runners (Test* classes with a main method) and benchmarks. -->
+    <sonar.coverage.exclusions>**/Test*.java,**/*Benchmark.java</sonar.coverage.exclusions>
   </properties>
 
   <dependencies>
