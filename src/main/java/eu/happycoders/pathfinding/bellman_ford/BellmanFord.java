@@ -59,7 +59,7 @@ public class BellmanFord {
         // Cheaper path found?
         // a) regular iteration --> Update total cost and predecessor
         // b) negative cycle detection --> throw exception
-        NodeWrapper edgeTargetWrapper = nodeWrappers.get(edge.target());
+        NodeWrapper<N> edgeTargetWrapper = nodeWrappers.get(edge.target());
         if (totalCostToEdgeTarget < edgeTargetWrapper.getTotalCostFromStart()) {
           if (lastIteration) {
             throw new IllegalArgumentException("Negative cycle detected");
