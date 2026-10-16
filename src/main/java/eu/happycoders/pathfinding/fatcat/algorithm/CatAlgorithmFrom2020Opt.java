@@ -62,7 +62,7 @@ public class CatAlgorithmFrom2020Opt implements CatAlgorithm {
     // solution would be to not store the outer border at all - neither here nor
     // in the labyrinth. But then we'd need additional checks in the code
     // whether the outer border is reached.)
-    boolean[][] discovered = new boolean[23][31];
+    boolean[][] discovered = new boolean[lab.length][lab[0].length];
 
     // "Discover" and enqueue the cat's start position
     discovered[cy][cx] = true;
@@ -71,12 +71,12 @@ public class CatAlgorithmFrom2020Opt implements CatAlgorithm {
     while (!queue.isEmpty()) {
       Node node = queue.poll();
 
-      // Go *two* steps breath-first into each direction
+      // Go *two* steps breadth-first into each direction
       for (Direction dir : Direction.values()) {
         // First step
-        int newX = node.x + dir.getDx();
-        int newY = node.y + dir.getDy();
-        Direction newDir = node.initialDir == null ? dir : node.initialDir;
+        int newX = node.x() + dir.getDx();
+        int newY = node.y() + dir.getDy();
+        Direction newDir = node.initialDir() == null ? dir : node.initialDir();
 
         // Mouse found after first step?
         if (newX == mx && newY == my) {
@@ -108,15 +108,5 @@ public class CatAlgorithmFrom2020Opt implements CatAlgorithm {
     throw new IllegalStateException("No path found");
   }
 
-  private static class Node {
-    final int x;
-    final int y;
-    final Direction initialDir;
-
-    public Node(int x, int y, Direction initialDir) {
-      this.x = x;
-      this.y = y;
-      this.initialDir = initialDir;
-    }
-  }
+  private record Node(int x, int y, Direction initialDir) {}
 }
